@@ -13,7 +13,7 @@ public class DocProducer implements DocumentProducer {
 
     @Override
     public Document get() {
-        Document document = new Doc();
+        Document document;
         if(iterator.hasNext()){
             document = iterator.next();
             return document;

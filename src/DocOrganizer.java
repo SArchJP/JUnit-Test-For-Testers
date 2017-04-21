@@ -1,16 +1,19 @@
 import lt.itakademija.DocumentConsumer;
 import lt.itakademija.DocumentOrganizer;
 import lt.itakademija.DocumentProducer;
+import lt.itakademija.DocumentTypeDetector;
 
 public class DocOrganizer implements DocumentOrganizer {
-    private long totalCount;
-    private long totalLinesCount;
 
-    private DocumentProducer documentProducer;
-    private DocumentConsumer documentConsumer;
+    DocumentTypeDetector documentTypeDetector;
+
+    public DocOrganizer(DocumentTypeDetector documentTypeDetector) {
+        this.documentTypeDetector = documentTypeDetector;
+    }
 
     @Override
     public long getTotalCount() {
+
         return 0;
     }
 
@@ -22,5 +25,13 @@ public class DocOrganizer implements DocumentOrganizer {
     @Override
     public void organize(DocumentProducer documentProducer, DocumentConsumer documentConsumer) {
 
+    }
+
+    public DocumentTypeDetector getDocumentTypeDetector() {
+        return documentTypeDetector;
+    }
+
+    public void setDocumentTypeDetector(DocumentTypeDetector documentTypeDetector) {
+        this.documentTypeDetector = documentTypeDetector;
     }
 }

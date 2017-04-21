@@ -5,17 +5,19 @@ import java.util.Iterator;
 public class BaseTestExt extends BaseTest {
     @Override
     protected DocumentOrganizer createDocumentOrganizer(DocumentTypeDetector documentTypeDetector) {
-        return null;
+        DocOrganizer docOrganizer = new DocOrganizer(documentTypeDetector);
+        return docOrganizer;
     }
 
     @Override
     protected DocumentProducer createDocumentProducer(Iterator<Document> iterator) {
-        DocProducer dp = new DocProducer(iterator);
-        return dp;
+        DocProducer docProducer = new DocProducer(iterator);
+        return docProducer;
     }
 
     @Override
     protected DocumentConsumer createDocumentConsumer(FileRepository fileRepository) {
-        return null;
+        DocumentConsumer documentConsumer = new DocConsumer(fileRepository);
+        return documentConsumer;
     }
 }
